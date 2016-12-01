@@ -48,7 +48,7 @@ class ServiceProvider extends BaseServiceProvider {
 
         $this->app->bind('twig.form.engine', function ($app) {
             $theme = (array) $app['config']->get('form.theme', 'bootstrap_3_layout.html.twig');
-            return new TwigRendererEngine($theme);
+            return new TwigRendererEngine($theme, $app['twig']);
         });
 
         $this->app->bind('twig.form.renderer', function ($app) {
